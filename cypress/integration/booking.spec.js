@@ -48,32 +48,32 @@ context('Booking', () => {
         })        
     });
 
-    it('Alterar um reserva inexistente', () => {
+    it('Alterar um reserva inexistente @functional', () => {
         req.updateBookingNotExist().then(updateBooking => {
             assertions.shouldHaveStatus(updateBooking, 405)
         })
         
     });
 
-    it('Alterar um reserva com token inválido', () => {
+    it('Alterar um reserva com token inválido @functional', () => {
         req.updateBoookingWithTokenInvalid().then(updateBooking => {
             assertions.shouldHaveStatus(updateBooking,403)
         })
     });
     
-    it('Excluir reserva inexistente', () => {
+    it('Excluir reserva inexistente @functional', () => {
         req.deleteItemNotExist().then(deleteBooking => {
             assertions.shouldHaveStatus(deleteBooking, 405)
         })
     });
 
-    it('Excluir reserva sem token', () => {
+    it('Excluir reserva sem token @functional', () => {
         req.deleteItemWithoutToken().then(deleteBooking => {
             assertions.shouldHaveStatus(deleteBooking, 403)
         })
     });
 
-    it('Excluir reserva com token inválido', () => {
+    it('Excluir reserva com token inválido @functional', () => {
         req.deleteWithTokenInvalid().then(deleteBooking => {
             assertions.shouldHaveStatus(deleteBooking, 403)
         })
