@@ -23,6 +23,13 @@ jobs:
         run: |
           npm ci
           $(npm bin)/cypress verify        
-      - name: Run Cypress tests
-        run: npm run test
+      - name: Run Test Healthcheck
+        run: npm run test:healthcheck
         continue-on-error: true
+      - name: Run Test Contract
+        run: npm run test:contract
+        continue-on-error: true
+      - name: Run Test Function
+        run: npm run test:function
+        continue-on-error: true
+      
