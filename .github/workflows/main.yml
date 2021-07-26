@@ -20,6 +20,8 @@ jobs:
         run: |
           npm ci
           $(npm bin)/cypress verify
+      - name: Install cy-spok
+        run: npm install -D bahmutov/cy-spok        
       - name: Run Cypress tests
         run: npm run test
         continue-on-error: true
