@@ -11,26 +11,13 @@ on:
 jobs:
   cypress-test:
     name: Run Test
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-16.04
     steps:
-      - uses: actions/checkout@v2
-      
-      
-      - name: Install cy-spok
-        run: npm install -D bahmutov/cy-spok
-      - name: Install cy-select-tests
-        run: npm install --save-dev cypress-select-tests 
+      - uses: actions/checkout@v2      
       - name: Install cypress and verify
         run: |
           npm ci
           $(npm bin)/cypress verify        
-      - name: Run Test Healthcheck
-        run: npm run test:healthcheck
+      - name: Run Cypress tests
+        run: npm run test
         continue-on-error: true
-      - name: Run Test Contract
-        run: npm run test:contract
-        continue-on-error: true
-      - name: Run Test Function
-        run: npm run test:function
-        continue-on-error: true
-      
