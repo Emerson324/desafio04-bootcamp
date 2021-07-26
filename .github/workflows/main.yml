@@ -10,15 +10,16 @@ on:
 
 jobs:
   cypress-test:
-    name: Run on Chrome 90
+    name: Run Test
     runs-on: ubuntu-18.04
-    container: cypress/browsers:node14.16.0-chrome90-ff88
     steps:
       - uses: actions/checkout@v2
       
       
       - name: Install cy-spok
-        run: npm install -D bahmutov/cy-spok 
+        run: npm install -D bahmutov/cy-spok
+      - name: Install cy-select-tests
+        run: npm install --save-dev cypress-select-tests 
       - name: Install cypress and verify
         run: |
           npm ci
